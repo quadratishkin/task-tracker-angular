@@ -1,0 +1,22 @@
+<div class="overlay" (click)="taskInformationService.isShowModal = false"></div>
+<div class="container">
+  <header class="header">Новая задача</header>
+  <input type="text" placeholder="Введите название задачи" />
+  <input type="text" placeholder="Укажите исполнителя" />
+  <input type="text" placeholder="Укажите срок выполнения" />
+  <input type="text" placeholder="Описание... " />
+  <input type="text" placeholder="Зависимые элементы" />
+  <button (click)="taskInformationService.isShowModal = false">no</button>
+  <button
+    (click)="taskInformationService.handleAddTask({
+      name: 'Задачка',
+      excutor: 'Никитос',
+      deadline: 'string',
+      dependencies: [],
+      description: 'string',
+  })"
+    (click)="taskInformationService.isShowModal = false"
+  >
+    yes
+  </button>
+</div>

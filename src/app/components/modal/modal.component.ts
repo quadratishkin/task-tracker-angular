@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { TaskInformationService } from 'src/app/services/task-information.service';
 
 @Component({
-  selector: 'app-table-block',
-  templateUrl: './table-block.component.html',
-  styleUrls: ['./table-block.component.scss'],
+  selector: 'app-modal',
+  templateUrl: './modal.component.html',
+  styleUrls: ['./modal.component.scss'],
 })
-export class TableBlockComponent {
+export class ModalComponent {
   constructor(public taskInformationService: TaskInformationService) {}
 }

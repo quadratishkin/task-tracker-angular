@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { TableType } from '../constants';
+import { TableType } from './service.types';
+
 
 @Injectable({
   providedIn: 'root'

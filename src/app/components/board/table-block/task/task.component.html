@@ -1,15 +1,32 @@
 <div class="wrapper">
   <div>
-    <button class="taskIsReadyButton">
+    <button
+      class="taskIsReadyButton"
+      (click)="taskInformationService.handleFinishTask(task.id)"
+    >
       <img
         src="../../../../../assets/checkbox-task-is-ready.svg"
         alt="task is ready"
       />
     </button>
-    Название
+    {{ task.name }}
   </div>
   <div>11-13 марта</div>
-  <button class="likeButton" >
-    <img src="../../../../../assets/like-not-pressed.svg" alt="Нравится" />
+  <button class="likeButton"
+   (click)="taskInformationService.handleChangeLike(task.id)"
+   
+  >
+    <div [ngSwitch]="true">
+      <img
+        *ngSwitchCase="task.isLiked"
+        src="../../../../../assets/like-pressed.svg"
+        alt="Нравится"
+      />
+      <img
+        *ngSwitchDefault
+        src="../../../../../assets/like-not-pressed.svg"
+        alt="Не нравится"
+      />
+    </div>
   </button>
 </div>

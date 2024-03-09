@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { TableType } from 'src/app/constants';
+
 import { TableTypeControlService } from 'src/app/services/table-type-control.service';
 import { buttonNameList, nameList } from './constants';
+import { TableType } from 'src/app/services/service.types';
+
 
 @Component({
   selector: 'app-table',
