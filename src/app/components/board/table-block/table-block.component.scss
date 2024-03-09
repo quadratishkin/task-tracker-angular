@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+}
+.blockName {
+  display: flex;
+  gap: 5px;
+}
+
+.buttons {
+  display: flex;
+  gap: 5px;
+}
+
+img {
+  width: 14px;
+  height: 14px;
+}

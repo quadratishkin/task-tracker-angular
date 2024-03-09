@@ -1,0 +1,26 @@
+<div class="wrapper">
+  <div class="toolbar">
+    <button
+      *ngFor="let item of nameList; let index = index"
+      [ngClass]="{
+        activeType:
+          tableTypeControlService.currentTableType === buttonNameList[index]
+      }"
+      (click)="
+        tableTypeControlService.handleChangeTableType(buttonNameList[index])
+      "
+      class="tableTypeButton"
+    >
+      {{ item }}
+    </button>
+  </div>
+
+  <div [ngSwitch]="tableTypeControlService.currentTableType">
+    <div *ngSwitchCase="TableType.LIST">
+      <app-list />
+    </div>
+    <div *ngSwitchDefault>
+      <app-board />
+    </div>
+  </div>
+</div>

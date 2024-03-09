@@ -1,0 +1,26 @@
+.wrapper {
+  position: relative;
+  background-color: white;
+  border-radius: 5px;
+  &:hover {
+    border: 2px solid black;
+  }
+}
+
+.taskIsReadyButton {
+  cursor: pointer;
+  background-color: white;
+  padding: 0;
+  border: none;
+}
+
+.likeButton {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+img {
+  width: 14px;
+  height: 14px;
+}
