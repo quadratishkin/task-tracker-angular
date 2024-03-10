@@ -19,7 +19,7 @@ export interface TaskValues {
   id: number;
   name: string;
   description?: string;
-  excutor: string;
+  executor: string;
   deadline: string;
   status: Status;
   priority: Priority;
