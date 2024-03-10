@@ -1,4 +1,11 @@
 <div class="wrapper">
-  <app-table-block />
+  <div class="buttons">
+    <button (click)="taskInformationService.isShowModal = true" class="addTask">
+      <img src="../../../../assets/plus-add-task.svg" alt="Add Task" />
+    </button>
+    <button class="option">
+      <img src="../../../../assets/dots-option.svg" alt="Options" />
+    </button>
+  </div>
   <app-table-block />
 </div>

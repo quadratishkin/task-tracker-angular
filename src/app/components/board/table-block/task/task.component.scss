@@ -1,4 +1,8 @@
 .wrapper {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   position: relative;
   background-color: white;
   border-radius: 5px;
@@ -14,10 +18,53 @@
   border: none;
 }
 
-.likeButton {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
+.lowButton {
+  background-color: rgb(169, 169, 243);
+  cursor: pointer;
+}
+
+.mediumButton {
+  background-color: rgb(232, 232, 100);
+  cursor: pointer;
+}
+
+.highButton {
+  background-color: rgb(252, 98, 98);
+  cursor: pointer;
+}
+
+.createdButton {
+  background-color: rgb(220, 220, 250);
+  cursor: pointer;
+}
+
+.progressButton {
+  background-color: rgb(104, 237, 171);
+  cursor: pointer;
+}
+
+.reviewButton {
+  background-color: rgb(249, 124, 245);
+  cursor: pointer;
+}
+
+.priorityField .statusField {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 70px;
+  min-height: 30px;
+  border-radius: 5px;
+  border: 1px solid black;
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 button {
@@ -25,6 +72,6 @@ button {
 }
 
 img {
-  width: 14px;
-  height: 14px;
+  width: 20px;
+  height: 20px;
 }

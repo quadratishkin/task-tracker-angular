@@ -1,0 +1,115 @@
+<div
+  class="overlay"
+  (click)="taskInformationService.isShowEditTask = false"
+></div>
+
+<div class="container">
+  <header class="header">Редактирование задачи</header>
+
+  <div>Название задачи</div>
+  <input [(ngModel)]="inputName" type="text" />
+
+  <div>Описание задачи</div>
+  <input [(ngModel)]="inputDescription" type="text" />
+
+  <div class="selectButtons">
+    <button
+      [ngClass]="{
+        activeButton: tmpPriority === Priority.LOW
+      }"
+      (click)="handelButtonCLickPriority(Priority.LOW)"
+      class="selectButton"
+    >
+      Низкий
+    </button>
+    <button
+      [ngClass]="{
+        activeButton: tmpPriority === Priority.MEDIUM
+      }"
+      (click)="handelButtonCLickPriority(Priority.MEDIUM)"
+      class="selectButton"
+    >
+      Средний
+    </button>
+    <button
+      [ngClass]="{
+        activeButton: tmpPriority === Priority.HIGH
+      }"
+      (click)="handelButtonCLickPriority(Priority.HIGH)"
+      class="selectButton"
+    >
+      Высокий
+    </button>
+  </div>
+
+  <div>
+    <div class="selectButtons">
+      <button
+        [ngClass]="{
+          activeButton: tmpStatus === Status.CREATED
+        }"
+        (click)="handelButtonCLickStatus(Status.CREATED)"
+        class="selectButton"
+      >
+        Создана
+      </button>
+      <button
+        [ngClass]="{
+          activeButton: tmpStatus === Status.IN_PROGRESS
+        }"
+        (click)="handelButtonCLickStatus(Status.IN_PROGRESS)"
+        class="selectButton"
+      >
+        В работе
+      </button>
+      <button
+        [ngClass]="{
+          activeButton: tmpStatus === Status.IN_REVIEW
+        }"
+        (click)="handelButtonCLickStatus(Status.IN_REVIEW)"
+        class="selectButton"
+      >
+        На ревью
+      </button>
+    </div>
+  </div>
+
+  <div>
+    <div>
+      <span> Срок выполнения </span>
+      <button (click)="handleChangeStateCalendar()">
+        Открыть/Закрыть календарь
+      </button>
+    </div>
+    <div [ngSwitch]="true">
+      <div *ngSwitchCase="isShowCalendar">
+        <mat-form-field>
+          <input [(ngModel)]="inputData" matInput [matDatepicker]="picker" />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div *ngSwitchDefault>{{ inputData }}</div>
+    </div>
+  </div>
+
+  <div class="decisionButtons">
+    <Button
+      class="decision"
+      (click)="taskInformationService.isShowEditTask = false"
+    >
+      Отмена
+    </Button>
+    <Button
+      class="decision"
+      (click)="handleChangeTask()"
+      (click)="taskInformationService.isShowEditTask = false"
+    >
+      Применить
+    </Button>
+  </div>
+</div>

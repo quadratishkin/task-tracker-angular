@@ -1,4 +1,6 @@
 <div class="wrapper">
+  <app-edit-task *ngIf="taskInformationService.isShowEditTask"></app-edit-task>
+
   <div class="toolbar">
     <button
       *ngFor="let item of nameList; let index = index"

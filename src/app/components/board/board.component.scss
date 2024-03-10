@@ -2,5 +2,21 @@
   display: flex;
   gap: 25px;
   background-color: rgba(30, 31, 33, 0.1);
-  padding: 10px;
+  padding: 10px 0 0 10px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  width: 18px;
+  height: 18px;
 }

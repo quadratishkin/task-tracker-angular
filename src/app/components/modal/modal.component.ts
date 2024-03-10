@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
+import { Priority, Status } from 'src/app/services/service.types';
 import { TaskInformationService } from 'src/app/services/task-information.service';
 
 @Component({
@@ -7,5 +8,34 @@ import { TaskInformationService } from 'src/app/services/task-information.servic
   styleUrls: ['./modal.component.scss'],
 })
 export class ModalComponent {
+  Priority = Priority;
+  Status = Status;
+
   constructor(public taskInformationService: TaskInformationService) {}
+
+  currentPriopity = Priority.MEDIUM;
+
+  inputName: string = '';
+  inputDescription: string = '';
+  inputData: string = '';
+
+  handelButtonCLickPriority(priority: Priority) {
+    this.currentPriopity = priority;
+  }
+  handleAddTask() {
+    const time = new Date(Date.parse(this.inputData));
+    const task = {
+      id: 3,
+      name: this.inputName,
+      excutor: 'Никитос',
+      deadline: [time.getMonth() + 1, time.getDate(), time.getFullYear()].join(
+        '-'
+      ),
+      description: this.inputDescription,
+      priority: this.currentPriopity,
+      status: Status.CREATED,
+      isLiked: false,
+    };
+    this.taskInformationService.handleAddTask(task);
+  }
 }

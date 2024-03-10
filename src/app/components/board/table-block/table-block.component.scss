@@ -1,4 +1,5 @@
 .wrapper {
+  width: 100%;
   padding: 5px;
   display: flex;
   flex-direction: column;
@@ -13,20 +14,6 @@
 .blockName {
   display: flex;
   gap: 5px;
-}
-
-.buttons {
-  display: flex;
-  gap: 5px;
-}
-
-button {
-  cursor: pointer;
-}
-
-img {
-  width: 14px;
-  height: 14px;
 }
 
 .tasks {

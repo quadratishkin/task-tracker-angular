@@ -4,12 +4,12 @@
   position: fixed;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  left: calc(50% - 200px);
-  top: calc(50% - 175px);
+  gap: 15px;
+  right: 0;
+  top: 0;
   z-index: 35;
-  width: 400px;
-  height: 400px;
+  min-width: 400px;
+  height: 100%;
   box-shadow: 5px 5px 4px #0c0c0c;
   border-radius: 5px;
   background-color: white;

@@ -3,20 +3,24 @@ export enum TableType {
   LIST = 'LIST',
 }
 
+export enum Status {
+  CREATED = 'CREATED',
+  IN_PROGRESS = 'IN_PROGRESS',
+  IN_REVIEW = 'IN_REVIEW',
+}
+
+export enum Priority {
+  LOW = 'LOW',
+  MEDIUM = 'MEDIUM',
+  HIGH = 'HIGH',
+}
+
 export interface TaskValues {
   id: number;
   name: string;
+  description?: string;
   excutor: string;
   deadline: string;
-  dependencies: TaskValues[] | null;
-  description?: string;
-  isLiked: boolean;
-}
-
-export interface AddTask {
-  name: string;
-  excutor: string;
-  deadline: string;
-  dependencies: TaskValues[] | null;
-  description?: string;
+  status: Status;
+  priority: Priority;
 }

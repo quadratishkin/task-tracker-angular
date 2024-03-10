@@ -1,32 +1,68 @@
-<div class="wrapper">
-  <div>
+<div class="wrapper" (click)="taskInformationService.handleEditTask(task)">
+  <div [ngStyle]="{ display: 'flex', 'justify-content': 'space-between' }">
+    {{ task.name }}
     <button
       class="taskIsReadyButton"
       (click)="taskInformationService.handleFinishTask(task.id)"
     >
       <img
+        title="Задача готова"
         src="../../../../../assets/checkbox-task-is-ready.svg"
         alt="task is ready"
       />
     </button>
-    {{ task.name }}
   </div>
-  <div>11-13 марта</div>
-  <button class="likeButton"
-   (click)="taskInformationService.handleChangeLike(task.id)"
-   
-  >
-    <div [ngSwitch]="true">
-      <img
-        *ngSwitchCase="task.isLiked"
-        src="../../../../../assets/like-pressed.svg"
-        alt="Нравится"
-      />
-      <img
-        *ngSwitchDefault
-        src="../../../../../assets/like-not-pressed.svg"
-        alt="Не нравится"
-      />
+
+  <div class="priorityField">
+    Приоритет:
+    <div
+      class="field"
+      [ngClass]="{
+      lowButton: task.priority === Priority.LOW,
+      mediumButton: task.priority === Priority.MEDIUM,
+      highButton: task.priority === Priority.HIGH,
+    }"
+    >
+      <div [ngSwitch]="task.priority">
+        <div
+          *ngSwitchCase="Priority.LOW"
+          [ngStyle]="{ 'vertical-align': 'middle' }"
+        >
+          Низкий
+        </div>
+        <div *ngSwitchCase="Priority.HIGH">Высокий</div>
+        <div *ngSwitchDefault>Средний</div>
+      </div>
     </div>
-  </button>
+  </div>
+
+  <div class="statusField">
+    Статус:
+    <div
+      class="field"
+      [ngClass]="{
+      createdButton: task.status === Status.CREATED,
+      progressButton: task.status === Status.IN_PROGRESS,
+      reviewButton: task.status === Status.IN_REVIEW,
+    }"
+    >
+      <div [ngSwitch]="task.status">
+        <div *ngSwitchCase="Status.IN_REVIEW">На ревью</div>
+        <div *ngSwitchCase="Status.IN_PROGRESS">В работе</div>
+        <div *ngSwitchDefault>Создана</div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="task.description">
+    Описание:
+    <div>
+      {{ task.description }}
+    </div>
+  </div>
+
+  <div>
+    Срок выполнения:
+    <div>{{ task.deadline }}</div>
+  </div>
 </div>

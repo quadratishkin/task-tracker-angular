@@ -1,30 +1,50 @@
 import { Injectable } from '@angular/core';
-import { AddTask, TaskValues } from './service.types';
+import { Priority, Status, TaskValues } from './service.types';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TaskInformationService {
   isShowModal = false;
+  isShowEditTask = false;
+  editTask: TaskValues = {
+    id: 0,
+    name: 'NAME',
+    description: '',
+    excutor: 'Никитос',
+    deadline: '3-17-2024',
+    status: Status.CREATED,
+    priority: Priority.LOW,
+  };
 
   tasks: TaskValues[] = [
     {
       id: 0,
       name: 'Задача',
+      description: '',
       excutor: 'Никитос',
-      deadline: 'string',
-      dependencies: [],
-      description: 'string',
-      isLiked: false,
+      deadline: '3-17-2024',
+      status: Status.CREATED,
+      priority: Priority.LOW,
     },
+
     {
       id: 1,
       name: 'Задача1',
-      excutor: 'Никитос21',
-      deadline: 'string213',
-      dependencies: [],
       description: 'string321',
-      isLiked: false,
+      excutor: 'Никитос21',
+      deadline: '4-12-2024',
+      status: Status.IN_PROGRESS,
+      priority: Priority.MEDIUM,
+    },
+    {
+      id: 2,
+      name: 'Задача1',
+      description: 'string321',
+      excutor: 'Никитос21',
+      deadline: '5-22-2024',
+      status: Status.IN_REVIEW,
+      priority: Priority.HIGH,
     },
   ];
 
@@ -34,24 +54,29 @@ export class TaskInformationService {
     this.isShowModal = true;
   }
 
-  handleAddTask(task: AddTask) {
-    const newTask = JSON.parse(JSON.stringify(task));
-    newTask.id = 3;
-    newTask.isLiked = false;
-    this.tasks.push(newTask);
+  handleOpenEditTask() {
+    this.isShowEditTask = true;
+  }
+
+  handleEditTask(task: TaskValues) {
+    this.editTask = task;
+    this.isShowEditTask = true;
+  }
+
+  handleAddTask(task: TaskValues) {
+    this.tasks.unshift(task);
   }
 
   handleFinishTask(id: number) {
-    console.log(this.tasks);
     this.tasks = this.tasks.filter((obj) => obj.id !== id);
-    console.log(this.tasks);
   }
 
-  handleChangeLike(id: number) {
-    this.tasks.map(function (obj) {
-      if (obj.id === id) {
-        obj.isLiked = !obj.isLiked;
+  handleChangeTask() {
+    this.tasks.map((obj) => {
+      if (obj.id === this.editTask.id) {
+        obj = this.editTask;
       }
     });
   }
+
 }
