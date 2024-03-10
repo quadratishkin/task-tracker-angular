@@ -34,7 +34,6 @@ export class ModalComponent {
       description: this.inputDescription,
       priority: this.currentPriopity,
       status: Status.CREATED,
-      isLiked: false,
     };
     this.taskInformationService.handleAddTask(task);
   }
