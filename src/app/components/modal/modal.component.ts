@@ -27,7 +27,7 @@ export class ModalComponent {
     const task = {
       id: 3,
       name: this.inputName,
-      excutor: 'Никитос',
+      executor: 'Никитос',
       deadline: [time.getMonth() + 1, time.getDate(), time.getFullYear()].join(
         '-'
       ),
