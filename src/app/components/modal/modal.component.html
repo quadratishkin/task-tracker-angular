@@ -3,7 +3,9 @@
   <header class="header">Новая задача</header>
   <div>
     <span> Введите название задачи </span>
-    <input [(ngModel)]="inputName" type="text" />
+    <input [ngClass]="{
+      errorBorder: isErrorName === true
+    }" [formControl]="nameControl" [(ngModel)]="inputName" type="text" />
   </div>
   <div>
     <span> Описание </span>
@@ -66,7 +68,7 @@
     <button
       class="decision"
       (click)="handleAddTask()"
-      (click)="taskInformationService.isShowModal = false"
+
     >
       создать
     </button>

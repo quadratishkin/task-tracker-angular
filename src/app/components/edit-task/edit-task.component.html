@@ -7,7 +7,14 @@
   <header class="header">Редактирование задачи</header>
 
   <div>Название задачи</div>
-  <input [(ngModel)]="inputName" type="text" />
+  <input
+    [ngClass]="{
+      errorBorder: isErrorName === true
+    }"
+    [formControl]="nameControl"
+    [(ngModel)]="inputName"
+    type="text"
+  />
 
   <div>Описание задачи</div>
   <input [(ngModel)]="inputDescription" type="text" />
@@ -96,6 +103,10 @@
       <div *ngSwitchDefault>{{ inputData }}</div>
     </div>
   </div>
+  <div>
+    Убрать срок выполения:
+    <input id="checkboxDeleteTime" type="checkbox" />
+  </div>
 
   <div class="decisionButtons">
     <Button
@@ -104,12 +115,6 @@
     >
       Отмена
     </Button>
-    <Button
-      class="decision"
-      (click)="handleChangeTask()"
-      (click)="taskInformationService.isShowEditTask = false"
-    >
-      Применить
-    </Button>
+    <Button class="decision" (click)="handleChangeTask()"> Применить </Button>
   </div>
 </div>

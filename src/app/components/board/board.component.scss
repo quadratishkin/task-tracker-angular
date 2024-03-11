@@ -1,7 +1,6 @@
 .wrapper {
   display: flex;
   gap: 25px;
-  background-color: rgba(30, 31, 33, 0.1);
   padding: 10px 0 0 10px;
 }
 
@@ -14,9 +13,42 @@
 
 button {
   cursor: pointer;
+  width: 100%;
 }
 
 img {
   width: 18px;
   height: 18px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.contentSort,
+.contentFilter {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.contentSort button,
+.contentFilter button {
+  color: black;
+  padding: 12px 16px;
+  display: block;
+}
+
+.contentSort button:hover,
+.contentFilter button:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .contentSort,
+.dropdown:hover .contentFilter {
+  display: block;
 }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgStyle } from '@angular/common';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
@@ -10,7 +10,6 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { AppComponent } from './app.component';
 import { TableComponent } from './components/table/table.component';
 import { BoardComponent } from './components/board/board.component';
-import { ListComponent } from './components/list/list.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { TableBlockComponent } from './components/board/table-block/table-block.component';
 import { TaskComponent } from './components/board/table-block/task/task.component';
@@ -22,7 +21,6 @@ import { EditTaskComponent } from './components/edit-task/edit-task.component';
     AppComponent,
     TableComponent,
     BoardComponent,
-    ListComponent,
     ModalComponent,
     TableBlockComponent,
     TaskComponent,
@@ -31,6 +29,7 @@ import { EditTaskComponent } from './components/edit-task/edit-task.component';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     NgStyle,
     MatDatepickerModule,
     MatFormFieldModule,

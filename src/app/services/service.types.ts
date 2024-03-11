@@ -1,8 +1,3 @@
-export enum TableType {
-  BOARD = 'BOARD',
-  LIST = 'LIST',
-}
-
 export enum Status {
   CREATED = 'CREATED',
   IN_PROGRESS = 'IN_PROGRESS',

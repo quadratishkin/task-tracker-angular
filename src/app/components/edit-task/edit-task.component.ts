@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { Priority, Status } from 'src/app/services/service.types';
 import { TaskInformationService } from 'src/app/services/task-information.service';
 
@@ -7,9 +8,12 @@ import { TaskInformationService } from 'src/app/services/task-information.servic
   templateUrl: './edit-task.component.html',
   styleUrls: ['./edit-task.component.scss'],
 })
-export class EditTaskComponent {
+export class EditTaskComponent implements OnInit {
   Status = Status;
   Priority = Priority;
+  nameControl!: FormControl;
+  isErrorName = false;
+  isShowCalendar = false;
 
   inputName: string = this.taskInformationService.editTask.name;
   inputDescription: string =
@@ -19,9 +23,10 @@ export class EditTaskComponent {
   tmpPriority: Priority = this.taskInformationService.editTask.priority;
   tmpStatus: Status = this.taskInformationService.editTask.status;
 
-  isShowCalendar = false;
-
   constructor(public taskInformationService: TaskInformationService) {}
+  ngOnInit(): void {
+    this.nameControl = new FormControl('', [Validators.required]);
+  }
 
   handelButtonCLickPriority(priority: Priority) {
     this.tmpPriority = priority;
@@ -36,11 +41,26 @@ export class EditTaskComponent {
   }
 
   handleChangeTask() {
+    if (this.nameControl.invalid) {
+      this.isErrorName = true;
+      return;
+    }
     this.taskInformationService.editTask.name = this.inputName;
     this.taskInformationService.editTask.description = this.inputDescription;
-    this.taskInformationService.editTask.deadline = this.inputData;
+    const time = new Date(Date.parse(this.inputData));
+    let deadline = [
+      time.getMonth() + 1,
+      time.getDate(),
+      time.getFullYear(),
+    ].join('-');
+    const checkboxDeleteTime = document.getElementById("checkboxDeleteTime") as HTMLInputElement;
+    if (this.inputData === 'Бессрочная' || checkboxDeleteTime.checked ) {
+      deadline = 'Бессрочная';
+    }
+    this.taskInformationService.editTask.deadline = deadline;
     this.taskInformationService.editTask.status = this.tmpStatus;
     this.taskInformationService.editTask.priority = this.tmpPriority;
     this.taskInformationService.handleChangeTask();
+    this.taskInformationService.isShowEditTask = false;
   }
 }

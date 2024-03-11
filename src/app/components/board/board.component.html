@@ -1,11 +1,60 @@
 <div class="wrapper">
   <div class="buttons">
-    <button (click)="taskInformationService.isShowModal = true" class="addTask">
+    <button
+      (click)="taskInformationService.isShowModal = true"
+      title="Создать задачу"
+      class="addTask"
+    >
       <img src="../../../../assets/plus-add-task.svg" alt="Add Task" />
     </button>
-    <button class="option">
-      <img src="../../../../assets/dots-option.svg" alt="Options" />
-    </button>
+    <div class="dropdown">
+      <button>
+        <img src="../../../assets/sort.svg" alt="Sort" />
+      </button>
+      <div class="contentSort">
+        <button (click)="taskInformationService.handleSort('priority')">
+          Приоритет
+        </button>
+
+        <button (click)="taskInformationService.handleSort('status')">
+          Статус
+        </button>
+
+        <button (click)="taskInformationService.handleSort('deadline')">
+          Срок выполнения
+        </button>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button>
+        <img src="../../../assets/checkbox-task-is-ready.svg" alt="Filter" />
+      </button>
+      <div class="contentFilter">
+        <button (click)="taskInformationService.handleFilter('')">
+          Без фильтрации
+        </button>
+        <button (click)="taskInformationService.handleFilter('created')">
+          Создана
+        </button>
+        <button (click)="taskInformationService.handleFilter('in_progress')">
+          В работе
+        </button>
+        <button (click)="taskInformationService.handleFilter('in_review')">
+          На ревью
+        </button>
+        <button (click)="taskInformationService.handleFilter('low')">
+          Низкий
+        </button>
+        <button (click)="taskInformationService.handleFilter('medium')">
+          Средний
+        </button>
+        <button (click)="taskInformationService.handleFilter('high')">
+          Высокий
+        </button>
+      </div>
+    </div>
   </div>
+
   <app-table-block />
 </div>
