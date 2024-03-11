@@ -82,27 +82,27 @@
   </div>
 
   <div>
-    <div>
+    <div class="deadlineField">
       <span> Срок выполнения </span>
-      <button (click)="handleChangeStateCalendar()">
-        Открыть/Закрыть календарь
-      </button>
-    </div>
-    <div [ngSwitch]="true">
-      <div *ngSwitchCase="isShowCalendar">
-        <mat-form-field>
-          <input [(ngModel)]="inputData" matInput [matDatepicker]="picker" />
-          <mat-hint>MM/DD/YYYY</mat-hint>
-          <mat-datepicker-toggle
-            matIconSuffix
-            [for]="picker"
-          ></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
+      <div [ngSwitch]="true">
+        <div *ngSwitchCase="isShowCalendar">
+          <mat-form-field>
+            <input [(ngModel)]="inputData" matInput [matDatepicker]="picker" />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div *ngSwitchDefault>{{ inputData }}</div>
       </div>
-      <div *ngSwitchDefault>{{ inputData }}</div>
     </div>
   </div>
+  <button class="calendarState" (click)="handleChangeStateCalendar()">
+    Открыть/Закрыть календарь
+  </button>
   <div>
     Убрать срок выполения:
     <input id="checkboxDeleteTime" type="checkbox" />

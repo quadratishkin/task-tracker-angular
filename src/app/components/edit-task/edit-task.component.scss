@@ -29,6 +29,16 @@
   text-align: center;
 }
 
+.deadlineField {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.calendarState {
+  min-height: 40px;
+}
+
 .selectButtons {
   display: flex;
   gap: 20px;
