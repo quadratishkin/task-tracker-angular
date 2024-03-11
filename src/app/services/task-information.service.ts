@@ -158,14 +158,14 @@ export class TaskInformationService {
       case 'in_progress': {
         this.isFiltered = true;
         this.tasks = this.tasks.filter(
-          (item) => item.status === Status.CREATED
+          (item) => item.status === Status.IN_PROGRESS
         );
         break;
       }
       case 'in_review': {
         this.isFiltered = true;
         this.tasks = this.tasks.filter(
-          (item) => item.status === Status.CREATED
+          (item) => item.status === Status.IN_REVIEW
         );
         break;
       }
