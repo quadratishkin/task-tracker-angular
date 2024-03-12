@@ -4,23 +4,23 @@
       (click)="taskInformationService.handleSaveData()"
       title="Сохранить данные в localStorage"
     >
-      <img src="../../../assets/save-data.svg" alt="Save" />
+      <img src="assets/save-data.svg" alt="Save" />
     </button>
     <button
       (click)="taskInformationService.handleGetData()"
       title="Получить данные из localStorage"
     >
-      <img src="../../../assets/get-data.svg" alt="Get" />
+      <img src="assets/get-data.svg" alt="Get" />
     </button>
     <button
       (click)="taskInformationService.isShowModal = true"
       title="Создать задачу"
     >
-      <img src="../../../assets/plus-add-task.svg" alt="Add Task" />
+      <img src="assets/plus-add-task.svg" alt="Add Task" />
     </button>
     <div class="dropdown">
       <button title="Отсортировать задачи">
-        <img src="../../../assets/sort.svg" alt="Sort" />
+        <img src="assets/sort.svg" alt="Sort" />
       </button>
       <div class="contentSort">
         <button (click)="taskInformationService.handleSort('priority')">
@@ -39,7 +39,7 @@
 
     <div class="dropdown">
       <button title="Отфильтровать задачи">
-        <img src="../../../assets/filter.svg" alt="Filter" />
+        <img src="assets/filter.svg" alt="Filter" />
       </button>
       <div class="contentFilter">
         <button (click)="taskInformationService.handleFilter('')">
