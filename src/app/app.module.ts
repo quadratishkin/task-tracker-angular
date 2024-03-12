@@ -6,6 +6,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MixedCdkDragDropModule } from 'angular-mixed-cdk-drag-drop';
 
 import { AppComponent } from './app.component';
 import { TableComponent } from './components/table/table.component';
@@ -36,6 +38,8 @@ import { EditTaskComponent } from './components/edit-task/edit-task.component';
     MatInputModule,
     MatNativeDateModule,
     BrowserAnimationsModule,
+    DragDropModule,
+    MixedCdkDragDropModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

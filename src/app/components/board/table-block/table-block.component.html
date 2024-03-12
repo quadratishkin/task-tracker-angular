@@ -9,6 +9,11 @@
   </div>
 
   <div class="tasks">
-    <app-task *ngFor="let task of taskInformationService.tasks" [task]="task" />
+    <app-task
+      [task]="task"
+      *ngFor="let task of taskInformationService.tasks"
+      cdkDropList
+      mixedCdkDropList
+    />
   </div>
 </div>

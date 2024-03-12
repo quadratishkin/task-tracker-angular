@@ -43,7 +43,7 @@ export class ModalComponent implements OnInit {
       deadline = 'Бессрочная';
     }
     const task = {
-      id: 3,
+      id: new Date().getTime(),
       name: this.inputName,
       executor: 'Никитос',
       deadline: deadline,

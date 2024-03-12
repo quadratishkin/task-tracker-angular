@@ -1,4 +1,8 @@
-<div class="wrapper" (click)="taskInformationService.handleEditTask(task)">
+<div
+  class="wrapper"
+  (click)="taskInformationService.handleEditTask(task)"
+  cdkDrag
+>
   <div [ngStyle]="{ display: 'flex', 'justify-content': 'space-between' }">
     {{ task.name }}
     <button

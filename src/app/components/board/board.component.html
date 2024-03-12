@@ -1,14 +1,25 @@
 <div class="wrapper">
   <div class="buttons">
     <button
+      (click)="taskInformationService.handleSaveData()"
+      title="Сохранить данные в localStorage"
+    >
+      <img src="../../../assets/save-data.svg" alt="Add Task" />
+    </button>
+    <button
+      (click)="taskInformationService.handleGetData()"
+      title="Получить данные из localStorage"
+    >
+      <img src="../../../assets/get-data.svg" alt="Add Task" />
+    </button>
+    <button
       (click)="taskInformationService.isShowModal = true"
       title="Создать задачу"
-      class="addTask"
     >
       <img src="../../../../assets/plus-add-task.svg" alt="Add Task" />
     </button>
     <div class="dropdown">
-      <button>
+      <button title="Отсортировать задачи">
         <img src="../../../assets/sort.svg" alt="Sort" />
       </button>
       <div class="contentSort">
@@ -27,7 +38,7 @@
     </div>
 
     <div class="dropdown">
-      <button>
+      <button title="Отфильтровать задачи">
         <img src="../../../assets/filter.svg" alt="Filter" />
       </button>
       <div class="contentFilter">
@@ -56,5 +67,11 @@
     </div>
   </div>
 
-  <app-table-block />
+  <app-table-block
+    cdkDropListGroup
+    mixedCdkDragDrop
+    [orientation]="'horizontal'"
+    [itemList]="taskInformationService.tasks"
+    (dropped)="dropped($event)"
+  />
 </div>

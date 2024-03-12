@@ -22,7 +22,7 @@ export class TaskInformationService {
   tasks: TaskValues[] = [
     {
       id: 0,
-      name: 'Задача',
+      name: 'Пример1',
       description: '',
       executor: 'Никитос',
       deadline: '3-17-2024',
@@ -32,25 +32,33 @@ export class TaskInformationService {
 
     {
       id: 1,
-      name: 'Задача1',
+      name: 'Пример2',
       description: 'string321',
-      executor: 'Никитос21',
+      executor: 'Никитос',
       deadline: '4-12-2024',
       status: Status.IN_PROGRESS,
       priority: Priority.MEDIUM,
     },
     {
       id: 2,
-      name: 'Задача1',
+      name: 'Пример3',
       description: 'string321',
-      executor: 'Никитос21',
-      deadline: '5-22-2024',
+      executor: 'Никитос',
+      deadline: 'Бессрочная',
       status: Status.IN_REVIEW,
       priority: Priority.HIGH,
     },
   ];
 
   constructor() {}
+
+  handleGetData() {
+    this.tasks = JSON.parse(localStorage?.getItem('data') || '');
+  }
+
+  handleSaveData() {
+    localStorage.setItem('data', JSON.stringify(this.tasks));
+  }
 
   handleOpenModal() {
     this.isShowModal = true;
